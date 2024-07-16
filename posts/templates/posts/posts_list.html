@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Posts
+{% endblock  %}
+
+
+{% block content %}  
+
+<!-- Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-gray-900">From the blog</h2>
+      <p class="mt-2 text-lg text-gray-600">Learn how to grow your business with our expert advice.</p>
+  </div>
+  
+  <div class="mt-12 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    {% for post in posts %}
+      <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+          <img class="w-full h-96 object-cover" src="{{post.banner.url}}" alt="{{post.title}}">
+          <div class="px-4 py-5 sm:p-6">
+              <div class="text-xs text-gray-500 mb-2">{{post.date | date:'M d, Y'}}</div>
+              <span class="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">{{post.slug}}</span>
+              <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                <a href="{% url 'posts:page' slug=post.slug %}">
+                  {{ post.title}}
+                </a>
+              </h3>
+              <p class="mt-2 text-gray-500 text-sm">
+                {{ post.body }}
+              </p>
+              
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+  
+</div>
+
+{% endblock %}
