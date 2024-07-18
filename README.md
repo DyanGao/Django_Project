@@ -1,6 +1,6 @@
 # Tech Blog mit Django 5 und TailwindCSS
 
-![image](../assets/images/myblog.png)
+![image](./assets/images/myblog.png)
 
 Dieses Projekt ist ein Tech Blog, erstellt als Projektarbeit mit Django 5 und TailwindCSS.
 
